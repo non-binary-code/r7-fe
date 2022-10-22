@@ -50,6 +50,7 @@ export const ContextProvider = ({ children }) => {
         filter,
         setFilter,
         setBasketItems,
+        basketItems
       }}
     >
       {children}
