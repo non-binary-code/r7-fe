@@ -23,7 +23,7 @@ const NavButton = ({ handler, icon, color }) => (
 );
 
 const Nav = () => {
-	const { giverInfo } = useStateContext();
+	const { userInfo } = useStateContext();
 
 	return (
 		<div className='flex justify-between p-2 md:mx-6 relative'>
@@ -31,13 +31,17 @@ const Nav = () => {
 
 			<div className='flex gap-6'>
 				<div className='flex justify-center items-center gap-2'>
-					<img src={''} alt='User avatar' className='rounded-full w-10 h-10' />
+					<img
+						src={userInfo?.image}
+						alt={userInfo?.name}
+						className='rounded-full w-10 h-10'
+					/>
 					<div
 						className='flex justify-center items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
 						onClick={() => {}}
 					>
 						<p>
-							<span className='text-gray-400 text-14'>{giverInfo?.name}</span>
+							<span className='text-gray-400 text-14'>{userInfo?.name}</span>
 						</p>
 						<MdKeyboardArrowDown className='text-gray-400 text-14' />
 					</div>
