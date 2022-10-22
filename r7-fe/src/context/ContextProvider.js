@@ -1,8 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { getUserInfo } from '../utils/api';
 
 // DUMMY DATA
-import { usersData } from '../data/dummy';
+import { usersData } from '../data/users';
 
 const StateContext = createContext();
 
@@ -14,8 +13,10 @@ export const ContextProvider = ({ children }) => {
 		image:
 			'https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179865.jpg',
 	});
-
+	const [visible, setVisible] = useState(16);
 	const [users, setUsers] = useState([]);
+	const [activeMenu, setActiveMenu] = useState(true);
+	const [filter, setFilter] = useState();
 
 	useEffect(() => {
 		setUsers(usersData);
@@ -28,7 +29,18 @@ export const ContextProvider = ({ children }) => {
 
 	return (
 		// eslint-disable-next-line react/jsx-no-constructed-context-values
-		<StateContext.Provider value={{ userInfo, users }}>
+		<StateContext.Provider
+			value={{
+				userInfo,
+				users,
+				visible,
+				setVisible,
+				activeMenu,
+				setActiveMenu,
+				filter,
+				setFilter,
+			}}
+		>
 			{children}
 		</StateContext.Provider>
 	);

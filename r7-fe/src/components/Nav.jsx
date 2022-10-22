@@ -4,6 +4,11 @@ import React, { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 
+import { Link, NavLink } from 'react-router-dom';
+
+// DATA
+import { links } from '../data/links';
+
 // CONTEXT
 import { useStateContext } from '../context/ContextProvider';
 
@@ -23,13 +28,33 @@ const NavButton = ({ handler, icon, color }) => (
 );
 
 const Nav = () => {
-	const { userInfo } = useStateContext();
+	const { userInfo, setActiveMenu, activeLink, inactiveLink } =
+		useStateContext();
 
 	return (
-		<div className='flex justify-between p-2 md:mx-6 relative'>
-			<NavButton title='Menu' handler={() => {}} icon={<AiOutlineMenu />} />
-
-			<div className='flex gap-6'>
+		<div className='flex justify-between p-2 md:mx-6 relative gap-6'>
+			<div className='flex w-[100%] justify-between items-center'>
+				<NavButton
+					handler={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
+					icon={<AiOutlineMenu />}
+				/>
+				<div className='flex gap-5'>
+					{links?.map((link) => (
+						<NavLink
+							to={`/${link.name}`}
+							key={link.name}
+							className={({ isActive }) =>
+								isActive ? activeLink : inactiveLink
+							}
+							style={({ isActive }) => ({
+								backgroundColor: isActive ? 'red' : '',
+							})}
+						>
+							{link.icon}
+							<span className='capitalize'>{link.name}</span>
+						</NavLink>
+					))}
+				</div>
 				<div className='flex justify-center items-center gap-2'>
 					<img
 						src={userInfo?.image}
