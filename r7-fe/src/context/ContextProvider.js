@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { getUserInfo } from '../utils/api';
 
+// DUMMY DATA
+import { usersData } from '../data/dummy';
+
 const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
@@ -12,6 +15,12 @@ export const ContextProvider = ({ children }) => {
 			'https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179865.jpg',
 	});
 
+	const [users, setUsers] = useState([]);
+
+	useEffect(() => {
+		setUsers(usersData);
+	}, []);
+
 	// TODO: Example API hook for getting user information
 	// useEffect(() => {
 	// 	getUserInfo().then((res) => setUserInfo(res));
@@ -19,7 +28,7 @@ export const ContextProvider = ({ children }) => {
 
 	return (
 		// eslint-disable-next-line react/jsx-no-constructed-context-values
-		<StateContext.Provider value={{ userInfo }}>
+		<StateContext.Provider value={{ userInfo, users }}>
 			{children}
 		</StateContext.Provider>
 	);
