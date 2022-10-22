@@ -19,6 +19,7 @@ export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [filter, setFilter] = useState();
   const [items, setItems] = useState([]);
+  const [basketItems, setBasketItems] = useState([]);
 
   useEffect(() => {
     setUsers(usersData);
@@ -27,6 +28,8 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     setItems(itemsData);
   }, []);
+
+  console.log("basketItems", basketItems);
 
   // TODO: Example API hook for getting user information
   // useEffect(() => {
@@ -46,6 +49,7 @@ export const ContextProvider = ({ children }) => {
         setActiveMenu,
         filter,
         setFilter,
+        setBasketItems,
       }}
     >
       {children}

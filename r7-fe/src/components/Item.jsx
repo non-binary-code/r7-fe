@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useStateContext } from "../context/ContextProvider";
 
 const Item = () => {
   const location = useLocation();
   const { item } = location.state;
+
+  const { setBasketItems } = useStateContext();
 
   return (
     <>
@@ -13,7 +16,9 @@ const Item = () => {
       <p>{item?.category}</p>
       <p>{item?.condition}</p>
       <p>{item?.delivery}</p>
-      <button>Add to basket</button>
+      <button onClick={() => setBasketItems((prev) => [...prev, item])}>
+        Add to basket
+      </button>
     </>
   );
 };
