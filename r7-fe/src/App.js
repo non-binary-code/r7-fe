@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useStateContext } from "./context/ContextProvider";
 import ReGift from "./pages/ReGift";
 import ReUse from "./pages/ReUse";
+import Basket from "./pages/Basket";
 
 function App() {
   const { activeMenu } = useStateContext();
@@ -43,6 +44,7 @@ function App() {
               <Route path="/re-use" element={<ReUse />} />
               <Route path="/re-gift" element={<ReGift />} />
               <Route path="/:username/:itemname" element={<Item />} />
+              <Route path="/basket" element={<Basket />} />
             </Routes>
           </div>
           {/* ------------------------------------------------ */}

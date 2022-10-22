@@ -29,8 +29,7 @@ export const ContextProvider = ({ children }) => {
     setItems(itemsData);
   }, []);
 
-  console.log("basketItems", basketItems);
-
+  
   // TODO: Example API hook for getting user information
   // useEffect(() => {
   // 	getUserInfo().then((res) => setUserInfo(res));
