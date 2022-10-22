@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 // ICONS
 import { AiOutlineMenu } from 'react-icons/ai';
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import { FiShoppingCart } from 'react-icons/fi';
+
 
 import { Link, NavLink } from 'react-router-dom';
 
@@ -11,6 +13,7 @@ import { links } from '../data/links';
 
 // CONTEXT
 import { useStateContext } from '../context/ContextProvider';
+import Basket from '../pages/Basket';
 
 const NavButton = ({ handler, icon, color }) => (
 	<button
@@ -55,6 +58,9 @@ const Nav = () => {
 						</NavLink>
 					))}
 				</div>
+				<Link to="/basket">
+				<FiShoppingCart/>
+				</Link>
 				<div className='flex justify-center items-center gap-2'>
 					<img
 						src={userInfo?.image}
