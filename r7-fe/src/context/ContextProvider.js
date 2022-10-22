@@ -1,19 +1,30 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { getBuyerData } from '../utils/api';
+import { getGiverInfo } from '../utils/api';
 
 const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
-	const [buyerData, setBuyerData] = useState(undefined);
+	const [giverInfo, setGiverInfo] = useState({
+		name: 'Dane Whitfield',
+		itemsToGive: ['Sofa'],
+		itemsReceived: [''],
+		image: '',
+	});
+	const [receiverInfo, setReceiverInfo] = useState({
+		name: 'Zan Clifton',
+		itemsToGive: ['Toaster'],
+		itemsReceived: ['Sofa'],
+		image: '',
+	});
 
 	// TODO: Example API hook for getting buyer information
-	useEffect(() => {
-		getBuyerData().then((res) => setBuyerData(res));
-	}, []);
+	// useEffect(() => {
+	// 	getGiverInfo().then((res) => setGiverInfo(res));
+	// }, []);
 
 	return (
 		// eslint-disable-next-line react/jsx-no-constructed-context-values
-		<StateContext.Provider value={{ buyerData, setBuyerData }}>
+		<StateContext.Provider value={{ giverInfo, receiverInfo }}>
 			{children}
 		</StateContext.Provider>
 	);
