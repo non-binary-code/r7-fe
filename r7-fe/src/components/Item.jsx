@@ -8,6 +8,10 @@ const Item = () => {
 
   const { setBasketItems } = useStateContext();
 
+  const alertText = `Do you really need this item?
+  
+Remember you will need to store it until you are finished with it and then manage its disposal or re-gifting!`
+
   return (
     <>
       <h1>{item?.name}</h1>
@@ -16,7 +20,8 @@ const Item = () => {
       <p>{item?.category}</p>
       <p>{item?.condition}</p>
       <p>{item?.delivery}</p>
-      <button onClick={() => setBasketItems((prev) => [...prev, item])}>
+      <button onClick={() => {
+      window.confirm(alertText) ? setBasketItems((prev) => [...prev, item]) : setBasketItems((prev) => [...prev]) }}>
         Add to basket
       </button>
     </>
