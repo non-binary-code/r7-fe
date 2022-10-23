@@ -4,8 +4,8 @@ const api = axios.create({
   baseURL: 'https://r7-api-athena.herokuapp.com/api',
 });
 
-const getUsers = async () => {
-  const { data } = await api.get('/users');
+export const getUsers = async () => {
+  const { data } = await api.get('/users?recover=true');
   return data;
 };
 
