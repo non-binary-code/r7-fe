@@ -12,6 +12,8 @@ import ReUse from './pages/ReUse';
 import Basket from './pages/Basket';
 import Recycle from './pages/Recycle';
 import Repair from './pages/Repair';
+import Reduce from './pages/Reduce';
+import Refuse from './pages/Refuse';
 
 
 function App() {
@@ -50,6 +52,8 @@ function App() {
               <Route path='/basket' element={<Basket />} />
               <Route path='/recycle' element={<Recycle />} />
               <Route path='/repair' element={<Repair />} />
+              <Route path='/reduce' element={<Reduce />} />
+              <Route path='/refuse' element={<Refuse />} />
             </Routes>
           </div>
           {/* ------------------------------------------------ */}
