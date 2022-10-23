@@ -120,7 +120,7 @@ const Form = () => {
         <button
           type='button'
           className='bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
-          onClick={() =>
+          onClick={() => {
             postItem({
               itemName,
               itemDesc,
@@ -128,8 +128,9 @@ const Form = () => {
               formOptions,
               userInfo,
               location,
-            })
-          }
+            });
+            window.location.href = '/re-use';
+          }}
         >
           Add Item
         </button>
