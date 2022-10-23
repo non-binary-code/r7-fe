@@ -12,14 +12,12 @@ import { categoryIds } from '../utils/category-config';
 const Marketplace = () => {
   const { items, visible, setVisible } = useStateContext();
 
-  console.log(items);
-
   return (
     <div className='bg-gray-100'>
       <div className='flex m-3 flex-wrap justify-center gap-10 items-center p-5'>
         {items?.slice(0, visible)?.map((item) => (
           <Link key={item.id} to={`/${item.id}/${item.name}`} state={{ item }}>
-            <div className='flex justify-center items-center flex-col bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl gap-2 drop-shadow-xl'>
+            <div className='flex justify-center items-center flex-col bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 lg:w-[300px] w-[300px] p-4 pt-9 rounded-2xl gap-2 drop-shadow-xl'>
               <img
                 src={
                   item.pictureUrl
