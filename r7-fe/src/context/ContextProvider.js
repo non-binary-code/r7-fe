@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 // DUMMY DATA
 import { usersData } from '../data/users';
 
-import { getItems } from '../utils/api';
+import { filterItems, getItems } from '../utils/api';
 
 const StateContext = createContext();
 

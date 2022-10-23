@@ -11,6 +11,8 @@ import ReGift from './pages/ReGift';
 import ReUse from './pages/ReUse';
 import Basket from './pages/Basket';
 import Recycle from './pages/Recycle';
+import Repair from './pages/Repair';
+
 
 function App() {
   const { activeMenu } = useStateContext();
@@ -47,6 +49,7 @@ function App() {
               <Route path='/:username/:itemname' element={<Item />} />
               <Route path='/basket' element={<Basket />} />
               <Route path='/recycle' element={<Recycle />} />
+              <Route path='/repair' element={<Repair />} />
             </Routes>
           </div>
           {/* ------------------------------------------------ */}
