@@ -48,7 +48,7 @@ const Refuse = () => {
           ></div>
         </div>
       </div>
-      <img src='/images/care.jpeg' className='w-[50%] h-[50%]' />
+      <img src='/images/care.jpg' className='w-[50%] h-[50%]' />
     </div>
   );
 };
