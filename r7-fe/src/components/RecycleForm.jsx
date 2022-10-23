@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
 import { Link } from 'react-router-dom';
 
 // DATA
@@ -7,7 +6,7 @@ import { groupedFilters } from '../data/filter';
 
 // CONTEXT
 import { useStateContext } from '../context/ContextProvider';
-import { postItem, postRecycleItem } from '../utils/api';
+import { postRecycleItem } from '../utils/api';
 import { useEffect } from 'react';
 
 const RecycleForm = () => {
