@@ -23,11 +23,12 @@ export const filterItems = async (filter) => {
   const type = filter.map((e) => e.value + 'TypeId');
   const id = filter.map((e) => (e.value === 'category' ? e.catId : e.conId));
 
-  console.log(filter);
-  console.log(`/items?${type}=${id}`);
-
   const { data } = await api.get(`/items?${type}=${id}`);
-  console.log(data, '<<< GET DATA');
+  return data;
+};
+
+export const getRepairItems = async () => {
+  const { data } = await api.get(`/items?conditionTypeId=6`);
   return data;
 };
 
