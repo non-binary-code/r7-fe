@@ -1,21 +1,20 @@
 import axios from 'axios';
 
 const api = axios.create({
-	baseURL: process.env.REACT_APP_HEROKU_URL,
+  baseURL: 'https://r7-api-athena.herokuapp.com/api',
 });
 
 const getUsers = async () => {
-	const users = await api.get('/users');
-	return users;
+  const { data } = await api.get('/users');
+  return data;
 };
 
-const getUserById = async ({id}) => {
-	const user = await api.get(`/users/${id}`);
-	return user;
+const getUserById = async ({ id }) => {
+  const { data } = await api.get(`/users/${id}`);
+  return data;
 };
 
-const getItems = async () => {
-	const items = await api.get('/items');
-	return items;
+export const getItems = async () => {
+  const { data } = await api.get('/items');
+  return data;
 };
-
