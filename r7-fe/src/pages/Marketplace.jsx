@@ -12,8 +12,6 @@ import { categoryIds } from '../utils/category-config';
 const Marketplace = () => {
   const { items, visible, setVisible } = useStateContext();
 
-  console.log(items);
-
   return (
     <div className='bg-gray-100'>
       <div className='flex m-3 flex-wrap justify-center gap-10 items-center p-5'>

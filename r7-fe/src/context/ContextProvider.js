@@ -2,7 +2,6 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 // DUMMY DATA
 import { usersData } from '../data/users';
-import { itemsData } from '../data/mockitems';
 
 import { getItems } from '../utils/api';
 
@@ -10,6 +9,7 @@ const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState({
+    userId: 1,
     name: 'Dane Whitfield',
     itemsToGive: ['Sofa'],
     itemsReceived: [''],
@@ -35,11 +35,6 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     getItems().then((res) => setItems(res));
   }, []);
-
-  // TODO: Example API hook for getting user information
-  // useEffect(() => {
-  // 	getUserInfo().then((res) => setUserInfo(res));
-  // }, []);
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
