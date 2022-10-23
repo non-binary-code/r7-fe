@@ -56,7 +56,7 @@ const RepairForm = () => {
           />
           {!itemDesc && (
             <p className='text-red-500 text-xs italic mt-3'>
-              Item description is required.
+              Description of issue is required.
             </p>
           )}
         </div>
@@ -112,7 +112,7 @@ const RepairForm = () => {
         <Link to='/'>
           <button
             className='bg-transparent hover:bg-green-400 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded'
-            onClick={() => (window.location.href = '/re-use')}
+            onClick={() => (window.location.href = '/repair')}
           >
             Cancel
           </button>
@@ -120,16 +120,18 @@ const RepairForm = () => {
         <button
           type='button'
           className='bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
-          onClick={() =>
-            postItem({
+          onClick={() => {
+            postRepairItem({
               itemName,
               itemDesc,
               itemImg,
               formOptions,
               userInfo,
               location,
-            })
-          }
+            });
+            window.location.href = '/repair';
+            alert('Item added!');
+          }}
         >
           Add Item
         </button>

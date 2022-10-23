@@ -50,3 +50,39 @@ export const postItem = async (item) => {
   const { data } = await api.post('/items/reuse', newItem);
   return data;
 };
+
+export const postRecycleItem = async (item) => {
+  const newItem = {
+    name: item.itemName,
+    description: item.itemDesc,
+    pictureUrl: item.itemImg,
+    weight: item.itemWeight,
+    dimensions: item.itemDimensions,
+    compostable: item.compostable,
+    location: item.location,
+    recycleLocation: item.recycleLocation,
+    distance: item.distance,
+    userId: item.userInfo.userId,
+  };
+
+  const { data } = await api.post('/items/recycle', newItem);
+};
+
+export const postRepairItem = async (item) => {
+  const newItem = {
+    name: item.itemName,
+    description: item.itemDesc,
+    categoryTypeId: item.formOptions.find((item) => item.catId).catId,
+    conditionTypeId: item.formOptions.find((item) => item.conId).conId,
+    delivery: item.formOptions.some((item) => item.value === 'delivery'),
+    collection: item.formOptions.some((item) => item.value === 'collection'),
+    postage: item.formOptions.some((item) => item.value === 'postage'),
+    recover: item.formOptions.some((item) => item.value === 'recover'),
+    pictureUrl: item.itemImg,
+    location: item.location,
+    userId: item.userInfo.userId,
+  };
+
+  const { data } = await api.post('/items/repair', newItem);
+  return data;
+};
