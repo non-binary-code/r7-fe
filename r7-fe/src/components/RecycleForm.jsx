@@ -212,7 +212,7 @@ const RecycleForm = () => {
         <Link to='/'>
           <button
             className='bg-transparent hover:bg-green-400 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded'
-            onClick={() => (window.location.href = '/re-use')}
+            onClick={() => (window.location.href = '/recycle')}
           >
             Cancel
           </button>

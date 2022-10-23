@@ -32,6 +32,11 @@ export const getRepairItems = async () => {
   return data;
 };
 
+export const getRecycleItems = async () => {
+  const { data } = await api.get(`/items/recycle`);
+  return data;
+};
+
 export const postItem = async (item) => {
   const newItem = {
     name: item.itemName,
