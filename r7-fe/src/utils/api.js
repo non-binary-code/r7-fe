@@ -47,6 +47,6 @@ export const postItem = async (item) => {
     userId: item.userInfo.userId,
   };
 
-  const { data } = await api.post('/items', newItem);
+  const { data } = await api.post('/items/reuse', newItem);
   return data;
 };
