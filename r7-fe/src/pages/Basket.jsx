@@ -34,7 +34,7 @@ const Basket = () => {
 
                 <div class='flex w-2/5'>
                   <div class='w-20'>
-                    <img class='h-24' src={item.image} alt='' />
+                    <img class='h-24' src={item.pictureUrl} alt='' />
                   </div>
                   <div class='flex flex-col justify-between ml-4 flex-grow'>
                     <span class='font-bold text-sm'>{item.name}</span>
