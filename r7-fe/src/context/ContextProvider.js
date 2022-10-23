@@ -1,18 +1,20 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 // DUMMY DATA
-import { usersData } from "../data/users";
-import { itemsData } from "../data/mockitems";
+import { usersData } from '../data/users';
+import { itemsData } from '../data/mockitems';
+
+import { getItems } from '../utils/api';
 
 const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState({
-    name: "Dane Whitfield",
-    itemsToGive: ["Sofa"],
-    itemsReceived: [""],
+    name: 'Dane Whitfield',
+    itemsToGive: ['Sofa'],
+    itemsReceived: [''],
     image:
-      "https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179865.jpg",
+      'https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179865.jpg',
   });
   const [visible, setVisible] = useState(16);
   const [users, setUsers] = useState([]);
@@ -26,10 +28,14 @@ export const ContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    setItems(itemsData);
+    const itemsData = getItems();
+    setItems((prev) => [...prev, itemsData]);
   }, []);
 
-  
+  useEffect(() => {
+    getItems().then((res) => setItems(res));
+  }, []);
+
   // TODO: Example API hook for getting user information
   // useEffect(() => {
   // 	getUserInfo().then((res) => setUserInfo(res));
@@ -49,7 +55,7 @@ export const ContextProvider = ({ children }) => {
         filter,
         setFilter,
         setBasketItems,
-        basketItems
+        basketItems,
       }}
     >
       {children}
