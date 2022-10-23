@@ -6,9 +6,6 @@ import Select from 'react-select';
 
 import { GoLocation } from 'react-icons/go';
 
-// DATA
-import { groupedFilters } from '../data/filter';
-
 // CONTEXT
 import { useStateContext } from '../context/ContextProvider';
 import { conditionIds } from '../utils/condition-config';

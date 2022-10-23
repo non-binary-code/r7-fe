@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
 import { Link } from 'react-router-dom';
 
 // DATA
@@ -7,15 +6,27 @@ import { groupedFilters } from '../data/filter';
 
 // CONTEXT
 import { useStateContext } from '../context/ContextProvider';
-import { postItem } from '../utils/api';
+import { postRecycleItem } from '../utils/api';
+import { useEffect } from 'react';
 
 const RecycleForm = () => {
   const { userInfo } = useStateContext();
   const [itemName, setItemName] = useState('');
   const [itemDesc, setItemDesc] = useState('');
   const [itemImg, setItemImg] = useState('');
-  const [location, setLocation] = useState('');
+  const [itemWeight, setItemWeight] = useState('');
+  const [itemDimensions, setItemDimensions] = useState('');
   const [recyclable, setRecyclable] = useState('');
+  const [location, setLocation] = useState('');
+  const [recycleLocation, setRecycleLocation] = useState('');
+  const [distance, setDistance] = useState('');
+  const [compostable, setCompostable] = useState('');
+
+  useEffect(() => {
+    if (recyclable) {
+      setCompostable(false);
+    }
+  }, [recyclable]);
 
   return (
     <form className='w-full max-w-lg'>
@@ -72,7 +83,7 @@ const RecycleForm = () => {
             id='grid-short-description'
             type='text'
             placeholder='1.01'
-            onChange={(e) => setItemDesc(e.target.value)}
+            onChange={(e) => setItemWeight(e.target.value)}
           />
           {!itemDesc && (
             <p className='text-red-500 text-xs italic mt-3'>
@@ -92,7 +103,7 @@ const RecycleForm = () => {
             id='grid-short-description'
             type='text'
             placeholder='H: 10, W: 10, D: 10'
-            onChange={(e) => setItemDesc(e.target.value)}
+            onChange={(e) => setItemDimensions(e.target.value)}
           />
           {!itemDesc && (
             <p className='text-red-500 text-xs italic mt-3'>
@@ -177,7 +188,7 @@ const RecycleForm = () => {
               id='grid-location'
               type='text'
               placeholder='Hunslet Library, Leeds, LS10 2NS'
-              onChange={(e) => setLocation(e.target.value)}
+              onChange={(e) => setRecycleLocation(e.target.value)}
             />
           </div>
           <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
@@ -192,7 +203,7 @@ const RecycleForm = () => {
               id='grid-location'
               type='text'
               placeholder='13.5'
-              onChange={(e) => setLocation(e.target.value)}
+              onChange={(e) => setDistance(e.target.value)}
             />
           </div>
         </div>
@@ -201,7 +212,7 @@ const RecycleForm = () => {
         <Link to='/'>
           <button
             className='bg-transparent hover:bg-green-400 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded'
-            onClick={() => (window.location.href = '/re-use')}
+            onClick={() => (window.location.href = '/recycle')}
           >
             Cancel
           </button>
@@ -209,15 +220,22 @@ const RecycleForm = () => {
         <button
           type='button'
           className='bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
-          onClick={() =>
-            postItem({
+          onClick={() => {
+            postRecycleItem({
               itemName,
               itemDesc,
               itemImg,
-              userInfo,
+              itemWeight,
+              itemDimensions,
+              compostable,
               location,
-            })
-          }
+              recycleLocation,
+              distance,
+              userInfo,
+            });
+            window.location.href = '/recycle';
+            alert('Item added!');
+          }}
         >
           Add Item
         </button>
