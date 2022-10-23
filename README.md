@@ -34,7 +34,7 @@ We checked our brand colours on the [Colour Contrast Checker](https://colourcont
 Terminal Commands for opening with VS Code:
 ```
 $ git clone https://github.com/non-binary-code/r7-fe.git
-$ cd r7-fe
+$ cd r7-fe/r7-fe
 $ code .
 ```
 
