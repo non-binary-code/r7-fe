@@ -35,10 +35,13 @@ const Nav = () => {
   return (
     <div className='flex justify-between p-2 md:mx-6 relative gap-6'>
       <div className='flex w-[100%] justify-between items-center'>
-        <NavButton
-          handler={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
-          icon={<AiOutlineMenu />}
-        />
+        <div className='flex gap-3'>
+          <NavButton
+            handler={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
+            icon={<AiOutlineMenu />}
+          />
+          <img src='/images/r7favicon.jpg' className='h-[40px] w-[40px]' />
+        </div>
         <div className='flex gap-5'>
           {links?.map((link) => (
             <NavLink
