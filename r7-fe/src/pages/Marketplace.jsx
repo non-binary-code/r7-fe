@@ -19,6 +19,8 @@ const Marketplace = () => {
   const { items, visible, setVisible, filter, setFilter } = useStateContext();
   const [filtered, setFiltered] = useState([]);
 
+  console.log(items);
+
   return (
     <div className='bg-gray-100'>
       <div className='flex justify-center mt-4'>
@@ -156,11 +158,11 @@ const Marketplace = () => {
       </div>
       <div className='flex justify-center items-center'>
         <p style={{ color: 'black', marginTop: '20px', marginBottom: '-20px' }}>
-          {visible <= items.length
-            ? `${visible}/${items.length} items showing`
-            : `${items.length}/${items.length} items showing`}
+          {visible <= filtered.length
+            ? `${visible}/${filtered.length} items showing`
+            : `${filtered.length}/${filtered.length} items showing`}
         </p>
-        {visible < items.length && <LoadMoreBtn setVisible={setVisible} />}
+        {visible < filtered.length && <LoadMoreBtn setVisible={setVisible} />}
       </div>
     </div>
   );

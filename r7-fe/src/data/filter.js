@@ -14,7 +14,7 @@ const condition = [
     conId: 4,
   },
   { label: 'Needs Upcycling', value: 'condition', conId: 5 },
-  { label: 'Needs Repair', value: 'condition', conId: 6 },
+  // { label: 'Needs Repair', value: 'condition', conId: 6 },
 ];
 
 const delivery = [
