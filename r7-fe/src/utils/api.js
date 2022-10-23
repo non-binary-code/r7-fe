@@ -15,7 +15,7 @@ const getUserById = async ({ id }) => {
 };
 
 export const getItems = async () => {
-  const { data } = await api.get('/items');
+  const { data } = await api.get('/items/reuse');
   return data;
 };
 
@@ -23,12 +23,12 @@ export const filterItems = async (filter) => {
   const type = filter.map((e) => e.value + 'TypeId');
   const id = filter.map((e) => (e.value === 'category' ? e.catId : e.conId));
 
-  const { data } = await api.get(`/items?${type}=${id}`);
+  const { data } = await api.get(`/items/reuse?${type}=${id}`);
   return data;
 };
 
 export const getRepairItems = async () => {
-  const { data } = await api.get(`/items?conditionTypeId=6`);
+  const { data } = await api.get(`/items/repair`);
   return data;
 };
 
