@@ -164,8 +164,8 @@ const RecycleForm = () => {
         </div>
       </div>
       {recyclable === 'Recyclable' && (
-        <div className='flex w-full justify-center items-center md:w-1/2 px-3 mb-6 md:mb-0'>
-          <div className=''>
+        <div className='flex flex-wrap -mx-3 mb-6'>
+          <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
             <label
               className='block mt-5 uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
               for='grid-item-img'
@@ -180,7 +180,7 @@ const RecycleForm = () => {
               onChange={(e) => setLocation(e.target.value)}
             />
           </div>
-          <div className=''>
+          <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
             <label
               className='block mt-5 uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
               for='grid-item-img'
