@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 // DUMMY DATA
 import { usersData } from '../data/users';
 
-import { filterItems, getItems } from '../utils/api';
+import { filterItems, getItems, getUsers } from '../utils/api';
 
 const StateContext = createContext();
 
@@ -24,7 +24,7 @@ export const ContextProvider = ({ children }) => {
   const [basketItems, setBasketItems] = useState([]);
 
   useEffect(() => {
-    setUsers(usersData);
+    getUsers().then((res) => setUsers(res));
   }, []);
 
   useEffect(() => {

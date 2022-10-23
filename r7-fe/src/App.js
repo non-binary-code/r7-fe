@@ -14,7 +14,7 @@ import Recycle from './pages/Recycle';
 import Repair from './pages/Repair';
 import Reduce from './pages/Reduce';
 import Refuse from './pages/Refuse';
-
+import Recover from './pages/Recover';
 
 function App() {
   const { activeMenu } = useStateContext();
@@ -54,6 +54,7 @@ function App() {
               <Route path='/repair' element={<Repair />} />
               <Route path='/reduce' element={<Reduce />} />
               <Route path='/refuse' element={<Refuse />} />
+              <Route path='/recover' element={<Recover />} />
             </Routes>
           </div>
           {/* ------------------------------------------------ */}
