@@ -160,43 +160,43 @@ const RecycleForm = () => {
               />
               <label className='ml-3'>Compostable</label>
             </div>
-            {recyclable === 'Recyclable' && (
-              <>
-                <div className='w-full md:w-1/2 px-3'>
-                  <label
-                    className='block mt-5 uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
-                    for='grid-item-img'
-                  >
-                    Nearest Recycling Centre *
-                  </label>
-                  <input
-                    className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
-                    id='grid-location'
-                    type='text'
-                    placeholder='Hunslet Library, Leeds, LS10 2NS'
-                    onChange={(e) => setLocation(e.target.value)}
-                  />
-                </div>
-                <div className='w-full md:w-1/2 px-3'>
-                  <label
-                    className='block mt-5 uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
-                    for='grid-item-img'
-                  >
-                    Distance *
-                  </label>
-                  <input
-                    className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
-                    id='grid-location'
-                    type='text'
-                    placeholder='13.5'
-                    onChange={(e) => setLocation(e.target.value)}
-                  />
-                </div>
-              </>
-            )}
           </div>
         </div>
       </div>
+      {recyclable === 'Recyclable' && (
+        <div className='flex w-full justify-center items-center md:w-1/2 px-3 mb-6 md:mb-0'>
+          <div className=''>
+            <label
+              className='block mt-5 uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
+              for='grid-item-img'
+            >
+              Nearest Recycling Centre *
+            </label>
+            <input
+              className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+              id='grid-location'
+              type='text'
+              placeholder='Hunslet Library, Leeds, LS10 2NS'
+              onChange={(e) => setLocation(e.target.value)}
+            />
+          </div>
+          <div className=''>
+            <label
+              className='block mt-5 uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
+              for='grid-item-img'
+            >
+              Distance *
+            </label>
+            <input
+              className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+              id='grid-location'
+              type='text'
+              placeholder='13.5'
+              onChange={(e) => setLocation(e.target.value)}
+            />
+          </div>
+        </div>
+      )}
       <div className='flex gap-3 justify-end mt-20'>
         <Link to='/'>
           <button
