@@ -150,7 +150,7 @@ const RecycleForm = () => {
               />
               <label className='ml-3'>Recyclable</label>
             </div>
-            <div class='flex items-center mb-4'>
+            <div class='flex items-center'>
               <input
                 id='com'
                 type='radio'
