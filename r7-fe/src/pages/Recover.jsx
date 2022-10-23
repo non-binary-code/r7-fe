@@ -6,6 +6,14 @@ const Recover = () => {
 
   return (
     <div className='flex flex-col justify-center items-center p-10'>
+      <div className='relative top-0 left-0 mb-5'>
+        <button
+          className='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-500 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-800'
+          type='button'
+        >
+          Post an Item
+        </button>
+      </div>
       <div className='p-5 border-2 border-blue-200 rounded-lg flex justify-center items-center gap-3 hover:bg-blue-200 mb-10'>
         <div class='flex -space-x-4'>
           {users?.map((user) => (
