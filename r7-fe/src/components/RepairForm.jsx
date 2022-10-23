@@ -31,7 +31,7 @@ const RepairForm = () => {
             className='appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
             id='grid-item-name'
             type='text'
-            placeholder='Microwave'
+            placeholder='Table'
             onChange={(e) => setItemName(e.target.value)}
           />
           {!itemName && (
@@ -51,7 +51,7 @@ const RepairForm = () => {
             className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
             id='grid-short-description'
             type='text'
-            placeholder='This ia a really good microwave'
+            placeholder='Slight damage at top'
             onChange={(e) => setItemDesc(e.target.value)}
           />
           {!itemDesc && (
@@ -71,7 +71,7 @@ const RepairForm = () => {
             className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
             id='grid-item-img'
             type='text'
-            placeholder='https://google.images/microwave'
+            placeholder='https://google.images/table.jpg'
             onChange={(e) => setItemImg(e.target.value)}
           />
         </div>
